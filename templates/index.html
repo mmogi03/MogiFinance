@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    <header>
+        <h1>STOCK INFORMATION FOR {{ name }}:</h1>
+    </header>
+    <div>
+        <center>
+        <table>
+        <tr>
+            <th>Company</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction["symbol"] }}</td>
+                    <td>{{ transaction["shares"] }}</td>
+                    <td>
+                        {% if transaction["shares"] == 0 %}
+                        {{ 0 }}
+                        {% else %}
+                        {{ transaction["price"] / transaction["shares"] }}</td>
+                        {% endif %}
+                    <td>{{ transaction["price"] }}</td>
+                </tr>
+            {% endfor %}
+        </tr>
+    </table>
+    </center>
+
+    </div>
+
+    <div>
+        <header>
+            <h2>Current Balance: {{ balance }} </h2>
+        </header>
+    </div>
+
+    <div>
+        <header>
+            <h2>Grand Total: {{ grand_total }}</h2>
+        </header>
+    </div>
+{% endblock %}

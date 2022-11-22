@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <header>
+        <h2>Stock Information for {{ name }}:</h2>
+        <ul>
+            <li> <h3>Price: {{ price }}</h3></li>
+        </ul>
+    </header>
+{% endblock %}
